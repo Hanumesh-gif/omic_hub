@@ -1,0 +1,6 @@
+{
+  "name": "TalentForge AI - Career Acceleration & Resume Suite",
+  "description": "All-in-one AI career hub: step-by-step resume builder with live ATS scoring, PDF export, job tracker, skill pathways, and automated mock interviews.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

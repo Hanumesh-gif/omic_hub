@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OmicHubFirebaseBlueprint",
+  "description": "Firestore database blueprint and schema specification for Omic Hub Bioinformatics Platform",
+  "entities": {
+    "users": {
+      "path": "users/{userId}",
+      "description": "User profile records",
+      "fields": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 120 },
+        "email": { "type": "string", "maxLength": 150 },
+        "avatar": { "type": "string", "maxLength": 500 },
+        "role": { "type": "string", "maxLength": 120 },
+        "targetRole": { "type": "string", "maxLength": 120 },
+        "experienceLevel": { "type": "string", "maxLength": 100 },
+        "targetIndustry": { "type": "string", "maxLength": 120 },
+        "location": { "type": "string", "maxLength": 120 },
+        "atsScore": { "type": "number" },
+        "isResumeUploaded": { "type": "boolean" },
+        "uploadedResumeFileName": { "type": "string", "maxLength": 200, "optional": true },
+        "uploadedAt": { "type": "string", "maxLength": 80, "optional": true },
+        "learningHours": { "type": "number", "optional": true },
+        "completedSkillsCount": { "type": "number", "optional": true },
+        "createdAt": { "type": "string", "maxLength": 80 },
+        "updatedAt": { "type": "string", "maxLength": 80 }
+      }
+    },
+    "applications": {
+      "path": "users/{userId}/applications/{applicationId}",
+      "description": "User job and research applications",
+      "fields": {
+        "id": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "company": { "type": "string", "maxLength": 150 },
+        "role": { "type": "string", "maxLength": 150 },
+        "stage": { "type": "string", "maxLength": 60 },
+        "appliedDate": { "type": "string", "maxLength": 80 },
+        "salaryRange": { "type": "string", "maxLength": 100 },
+        "location": { "type": "string", "maxLength": 120 },
+        "jobUrl": { "type": "string", "maxLength": 500, "optional": true },
+        "recruiterName": { "type": "string", "maxLength": 120, "optional": true },
+        "recruiterContact": { "type": "string", "maxLength": 150, "optional": true },
+        "notes": { "type": "string", "maxLength": 2000, "optional": true },
+        "updatedAt": { "type": "string", "maxLength": 80 }
+      }
+    },
+    "activities": {
+      "path": "users/{userId}/activities/{activityId}",
+      "description": "User timeline activity logs",
+      "fields": {
+        "id": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "type": { "type": "string", "maxLength": 50 },
+        "title": { "type": "string", "maxLength": 200 },
+        "description": { "type": "string", "maxLength": 1000 },
+        "timestamp": { "type": "string", "maxLength": 80 },
+        "badge": { "type": "string", "maxLength": 80, "optional": true }
+      }
+    },
+    "bookmarks": {
+      "path": "users/{userId}/bookmarks/{newsId}",
+      "description": "User bookmarked bioinformatics industry news",
+      "fields": {
+        "id": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "newsId": { "type": "string", "maxLength": 128 },
+        "savedAt": { "type": "string", "maxLength": 80 }
+      }
+    },
+    "chat_messages": {
+      "path": "users/{userId}/chat_messages/{messageId}",
+      "description": "Multi-turn Gemini chat session history",
+      "fields": {
+        "id": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "role": { "type": "string", "maxLength": 20 },
+        "model": { "type": "string", "maxLength": 80 },
+        "text": { "type": "string", "maxLength": 10000 },
+        "timestamp": { "type": "string", "maxLength": 80 }
+      }
+    }
+  }
+}
